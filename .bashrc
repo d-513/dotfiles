@@ -5,9 +5,23 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-# envs
 
-export PS1="\[\033[1;37m\]┌──╼\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[1;32m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[1;37m\]⇀\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[1;32m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[1;37m\]⇀\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[1;37m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\n\[$(tput sgr0)\]\[\033[1;37m\]└╼\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[1;32m\]\[$(tput sgr0)\]"
+# PROMPT
+
+MAIN_COLOR="\[\033[38;5;27m\]";
+SECONDARY_COLOR="\[\033[38;5;25m\]";
+ACCENT_COLOR="\[\033[38;5;75m\]";
+ACCENT2_COLOR="\[\033[38;5;248m\]";
+TEXT_COLOR="\[\033[38;5;253m\]";
+
+PROMPT_COMMAND='pwd2=$(sed "s:\([^/]\)[^/]*/:\1/:g" <<<$PWD);\
+gitbranch=$(git branch 2>/dev/null | grep '^*' | cut -c 2-);\
+FIRST_LINE="$MAIN_COLOR┌───( $ACCENT_COLOR$USERNAME $MAIN_COLOR)-[ $ACCENT2_COLOR$pwd2 $MAIN_COLOR]"; \
+SECOND_LINE="│$SECONDARY_COLOR \d \t $MAIN_COLOR"; \
+LAST_LINE="└─$gitbranch$ACCENT_COLOR > $TEXT_COLOR"; \
+PS1="\r\n${FIRST_LINE}\r\n${SECOND_LINE} \r\n${LAST_LINE}" '
+
+# ENV
 
 export EDITOR=nano
 export BASED=nano
