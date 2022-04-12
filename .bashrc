@@ -5,12 +5,18 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-# some bs someone sent me
+# envs
+
 export PS1="\[\033[1;37m\]┌──╼\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[1;32m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[1;37m\]⇀\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[1;32m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[1;37m\]⇀\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[1;37m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\n\[$(tput sgr0)\]\[\033[1;37m\]└╼\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[1;32m\]\[$(tput sgr0)\]"
 
 export EDITOR=nano
 export BASED=nano
 export GPG_TTY=$(tty)
+export CFLAGS="-march=native -O2 -pipe"
+export CXXFLAGS="$CFLAGS"
+export MAKEFLAGS="-j$(nproc)"
+export CC=gcc
+
 
 # base dirs
 
@@ -54,10 +60,3 @@ upd() {
   pacman update
   flatpak update --noninteractive
 }
-
-# env vars
-
-export CFLAGS="-march=native -O2 -pipe"
-export CXXFLAGS="$CFLAGS"
-export MAKEFLAGS="-j$(nproc)"
-export CC=gcc
