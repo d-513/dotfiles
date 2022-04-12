@@ -12,9 +12,16 @@ export PS1="\[\033[1;37m\]┌──╼\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput
 export EDITOR=nano
 export GPG_TTY=$(tty)
 alias explore="nautilus . &"
-alias pacman_autoremove="sudo pacman -Qtdq | sudo pacman -Rns -"
+alias dot="yadm"
+pacman() {
+    if [[ $@ == "autoremove" ]]; then
+        sudo pacman -Qtdq | sudo pacman -Rns -
+    else
+        command pacman "$@"
+    fi
+}
 upd() {
-  pacaur -Syu
+  sudo pacman -Syu
   flatpak update --noninteractive
 }
 
