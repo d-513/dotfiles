@@ -19,7 +19,7 @@ gitbranch=$(git branch 2>/dev/null | grep '^*' | cut -c 2-);\
 FIRST_LINE="$MAIN_COLOR┌───( $ACCENT_COLOR$USERNAME $MAIN_COLOR)-[ $ACCENT2_COLOR$pwd2 $MAIN_COLOR]"; \
 SECOND_LINE="│$SECONDARY_COLOR \d \t $MAIN_COLOR"; \
 LAST_LINE="└─$gitbranch$ACCENT_COLOR > $TEXT_COLOR"; \
-PS1="\r\n${FIRST_LINE}\r\n${SECOND_LINE} \r\n${LAST_LINE}" '
+PS1="${FIRST_LINE}\r\n${SECOND_LINE} \r\n${LAST_LINE}" '
 
 # ENV
 
@@ -52,9 +52,6 @@ pacman() {
     if [[ $1 == "autoremove" ]]; then
         sudo pacman -Qtdq | sudo pacman -Rns -
     elif [[ $1 == "update" ]]; then
-        if [[ -z $2 ]]; then
-            echo "W: Arguments ignored"
-        fi
         sudo pacman -Syu
     elif [[ $1 == "aurdev" ]]; then
         if [[ -z $2 ]]; then
