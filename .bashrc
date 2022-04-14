@@ -71,3 +71,5 @@ upd() {
   pacman update
   flatpak update --noninteractive
 }
+
+eval "$(thefuck --alias)"
