@@ -1,10 +1,12 @@
 # My ~/.bashrc
+eval "$(antidot init)"
 # very shit indeed but it is what it is
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
+
 
 # PROMPT
 
@@ -19,7 +21,7 @@ gitbranch=$(git branch 2>/dev/null | grep '^*' | cut -c 2-);\
 FIRST_LINE="$MAIN_COLOR┌───( $ACCENT_COLOR$USERNAME $MAIN_COLOR)-[ $ACCENT2_COLOR$pwd2 $MAIN_COLOR]"; \
 SECOND_LINE="│$SECONDARY_COLOR \d \t $MAIN_COLOR"; \
 LAST_LINE="└─$gitbranch$ACCENT_COLOR > $TEXT_COLOR"; \
-PS1="\r\n${FIRST_LINE}\r\n${SECOND_LINE} \r\n${LAST_LINE}" '
+PS1="${FIRST_LINE}\r\n${SECOND_LINE}\r\n${LAST_LINE}"'
 
 # ENV
 
@@ -42,6 +44,7 @@ alias explore="nautilus . &"
 alias dot="yadm"
 alias hist='cat ~/.bash_history'
 alias update='upd'
+alias docker='sudo docker'
 
 # sudowrappers & additional things
 
@@ -74,3 +77,4 @@ upd() {
   pacman update
   flatpak update --noninteractive
 }
+
