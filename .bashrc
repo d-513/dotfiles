@@ -75,7 +75,3 @@ upd() {
   flatpak update --noninteractive
 }
 
-<<<<<<< HEAD
-=======
-eval "$(thefuck --alias)"
->>>>>>> 009c907ca9ba0913125456862092958481a30a65
