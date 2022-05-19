@@ -1,6 +1,5 @@
 # My ~/.bashrc
 eval "$(starship init bash)"
-eval "$(antidot init)"
 # very shit indeed but it is what it is
 
 # If not running interactively, don't do anything
