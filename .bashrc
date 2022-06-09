@@ -1,5 +1,6 @@
 # My ~/.bashrc
 eval "$(starship init bash)"
+source ~/.profile
 # very shit indeed but it is what it is
 
 # If not running interactively, don't do anything
@@ -26,9 +27,11 @@ mkdir -p ~/Projects
 
 alias explore="nautilus . &"
 alias dot="yadm"
-alias hist='cat ~/.bash_history'
 alias update='upd'
 alias docker='sudo docker'
+alias podman='sudo podman'
+
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 
 # sudowrappers & additional things
 
