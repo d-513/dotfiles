@@ -7,34 +7,10 @@ source ~/.profile
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-
-# ENV
-
-export EDITOR=nano
-export BASED=nano
-export GPG_TTY=$(tty)
-export CFLAGS="-march=native -O2 -pipe"
-export CXXFLAGS="$CFLAGS"
-export MAKEFLAGS="-j$(nproc)"
-export CC=gcc
-
-
-# base dirs
-
-mkdir -p ~/Projects
-
-# aliases
-
 alias explore="nautilus . &"
 alias dot="yadm"
 alias update='upd'
-alias docker='sudo docker'
-alias podman='sudo podman'
-
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
-
-# sudowrappers & additional things
-
 pacman() {
     # $1 for first arg, $2 for next etc
     # $@ for all args
